@@ -1,0 +1,49 @@
+import { Link, useLocation } from '@tanstack/react-router';
+import { ArrowUpRight, Menu, X, Pause, Play, Sparkles } from 'lucide-react';
+import { useState, type ReactNode } from 'react';
+import { Button } from '@/components/ui/button';
+import { portfolioSections } from '@/lib/portfolio';
+
+export function PortfolioShell({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [motionPaused, setMotionPaused] = useState(false);
+  return (
+    <div className={`portfolio-app ${motionPaused ? 'motion-paused' : ''}`}>
+      <header className="site-header">
+        <Link to="/" className="brand" aria-label="Ryo — halaman utama">
+          <span className="brand-mark">RYO.</span>
+          <span className="brand-caption">THE PHANTOM<br />PORTFOLIO</span>
+        </Link>
+        <span className="header-center">A LITTLE REBELLION. A LOT OF AMBITION.</span>
+        <div className="header-actions">
+          <span className="header-status"><span className="status-dot" /> PERSONAL PORTFOLIO</span>
+          <Button variant="nav" size="icon" title={motionPaused ? 'Aktifkan animasi' : 'Jeda animasi'} aria-label={motionPaused ? 'Aktifkan animasi' : 'Jeda animasi'} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? <Play /> : <Pause />}</Button>
+          <Button variant="nav" size="icon" className="mobile-menu-toggle" aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'} aria-expanded={menuOpen} aria-controls="portfolio-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button>
+        </div>
+      </header>
+      <div className="main-layout">
+        <aside className="side-menu" data-open={menuOpen}>
+          <p className="menu-eyebrow">CHOOSE YOUR NEXT MOVE</p>
+          <nav id="portfolio-navigation" aria-label="Navigasi portofolio" className="menu-list">
+            {portfolioSections.map(item => <Link key={item.to} to={item.to} className="menu-link" data-active={pathname === item.to} aria-current={pathname === item.to ? 'page' : undefined} onClick={() => setMenuOpen(false)}><span className="menu-number">{item.number}</span><span>{item.label}</span></Link>)}
+          </nav>
+          <p className="menu-note"><Sparkles size={13} /> EVERY STORY STARTS SOMEWHERE.</p>
+        </aside>
+        <main id="main-content" className="main-stage">
+          <div key={pathname} className="route-enter">{children}</div>
+        </main>
+      </div>
+      <footer className="site-footer">
+        <span className="footer-signature">© 2026 STEVANUS RYO WIJAYA</span>
+        <span>INDEPENDENT PORTFOLIO · INSPIRED BY PERSONA 5 ROYAL</span>
+        <Link to="/contact" className="flex items-center gap-2 text-paper">LET'S CONNECT <ArrowUpRight size={13} /></Link>
+      </footer>
+      {!motionPaused && <div key={`transition-${pathname}`} className="transition-slash" aria-hidden="true" />}
+    </div>
+  );
+}
+
+export function PageHeading({ number, label, first, last, description }: { number: string; label: string; first: string; last: string; description: string }) {
+  return <><span className="eyebrow"><span className="bg-ink px-2 py-1">{number}</span> {label}</span><h1 className="page-title"><span className="title-tag">{first}</span><br />{last}<span className="text-ink">.</span></h1><p className="page-subtitle">{description}</p></>;
+}

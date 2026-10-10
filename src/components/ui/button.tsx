@@ -16,6 +16,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        phantom: "phantom-button",
+        phantomOutline: "phantom-button phantom-button-outline",
+        menu: "phantom-menu-button",
+        nav: "phantom-nav-button",
       },
       size: {
         default: "h-9 px-4 py-2",
