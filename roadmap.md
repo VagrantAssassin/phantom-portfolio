@@ -6,3 +6,4 @@
 - [x] Make the mobile menu fully cover the screen with an X close control and verify opening, closing, and navigation.
 - [x] Replace the character with the latest uploaded transparent artwork.
 - [x] Make the home ticker and white section span the page without clipped edges; verify desktop and mobile.
+- [ ] Add the uploaded Persona behind the main character and verify the layered composition.
