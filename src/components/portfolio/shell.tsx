@@ -1,6 +1,7 @@
 import { Link, useLocation } from '@tanstack/react-router';
 import { ArrowUpRight, Menu, X, Pause, Play, Sparkles } from 'lucide-react';
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from '@/components/ui/button';
 import { portfolioSections } from '@/lib/portfolio';
 
@@ -8,7 +9,15 @@ export function PortfolioShell({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [motionPaused, setMotionPaused] = useState(false);
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 761px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
+  const navigation = (id: string) => <><p className="menu-eyebrow">CHOOSE YOUR NEXT MOVE</p><nav id={id} aria-label="Navigasi portofolio" className="menu-list">{portfolioSections.map(item => <Link key={item.to} to={item.to} className="menu-link" data-active={pathname === item.to} aria-current={pathname === item.to ? 'page' : undefined} onClick={() => setMenuOpen(false)}><span className="menu-number">{item.number}</span><span>{item.label}</span></Link>)}</nav><p className="menu-note"><Sparkles size={13} /> EVERY STORY STARTS SOMEWHERE.</p></>;
   return (
+    <Dialog.Root open={menuOpen} onOpenChange={setMenuOpen}>
     <div className={`portfolio-app ${motionPaused ? 'motion-paused' : ''}`}>
       <header className="site-header">
         <Link to="/" className="brand" aria-label="Ryo — halaman utama">
@@ -19,17 +28,11 @@ export function PortfolioShell({ children }: { children: ReactNode }) {
         <div className="header-actions">
           <span className="header-status"><span className="status-dot" /> PERSONAL PORTFOLIO</span>
           <Button variant="nav" size="icon" title={motionPaused ? 'Aktifkan animasi' : 'Jeda animasi'} aria-label={motionPaused ? 'Aktifkan animasi' : 'Jeda animasi'} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? <Play /> : <Pause />}</Button>
-          <Button variant="nav" size="icon" className="mobile-menu-toggle" aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'} aria-expanded={menuOpen} aria-controls="portfolio-navigation" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button>
+          <Dialog.Trigger asChild><Button variant="nav" size="icon" className="mobile-menu-toggle" aria-label="Buka menu"><Menu /></Button></Dialog.Trigger>
         </div>
       </header>
       <div className="main-layout">
-        <aside className="side-menu" data-open={menuOpen}>
-          <p className="menu-eyebrow">CHOOSE YOUR NEXT MOVE</p>
-          <nav id="portfolio-navigation" aria-label="Navigasi portofolio" className="menu-list">
-            {portfolioSections.map(item => <Link key={item.to} to={item.to} className="menu-link" data-active={pathname === item.to} aria-current={pathname === item.to ? 'page' : undefined} onClick={() => setMenuOpen(false)}><span className="menu-number">{item.number}</span><span>{item.label}</span></Link>)}
-          </nav>
-          <p className="menu-note"><Sparkles size={13} /> EVERY STORY STARTS SOMEWHERE.</p>
-        </aside>
+        <aside className="side-menu">{navigation('portfolio-navigation')}</aside>
         <main id="main-content" className="main-stage">
           <div key={pathname} className="route-enter">{children}</div>
         </main>
@@ -41,6 +44,8 @@ export function PortfolioShell({ children }: { children: ReactNode }) {
       </footer>
       {!motionPaused && <div key={`transition-${pathname}`} className="transition-slash" aria-hidden="true" />}
     </div>
+    <Dialog.Portal><Dialog.Content className={`mobile-navigation ${motionPaused ? 'motion-paused' : ''}`} aria-describedby={undefined}><Dialog.Title className="sr-only">Menu portofolio</Dialog.Title><Dialog.Close asChild><Button variant="nav" size="icon" className="mobile-menu-close" title="Tutup menu" aria-label="Tutup menu"><X /></Button></Dialog.Close>{navigation('mobile-portfolio-navigation')}</Dialog.Content></Dialog.Portal>
+    </Dialog.Root>
   );
 }
 
