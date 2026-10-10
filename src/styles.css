@@ -125,11 +125,11 @@
 .hero-bottom { position: absolute; bottom: 24px; left: 32px; right: 40px; display: flex; align-items: center; justify-content: space-between; z-index: 5; }
 .hero-bottom a { display: flex; align-items: center; gap: 10px; color: var(--paper); font-family: var(--font-condensed); font-weight: 600; font-size: 11px; }
 .hero-bottom .edition { font-family: var(--font-condensed); font-size: 10px; background: var(--ink); padding: 4px 9px; }
-.ticker { overflow: hidden; background: var(--ink); color: var(--paper); padding: 21px 0; transform: rotate(-2deg) scale(1.025); position: relative; z-index: 15; border-top: 3px solid var(--paper); border-bottom: 3px solid var(--paper); }
+.ticker { overflow: hidden; width: 100%; background: var(--ink); color: var(--paper); padding: 21px 0; position: relative; z-index: 15; border-top: 3px solid var(--paper); border-bottom: 3px solid var(--paper); }
 .ticker-track { display: flex; align-items: center; gap: 40px; width: max-content; font-family: var(--font-condensed); font-weight: 800; font-size: 32px; line-height: 1; animation: ticker 30s linear infinite; }
 .ticker-track .outline-word { -webkit-text-stroke: 1px var(--paper); color: transparent; }
 .ticker-track .ticker-star { color: var(--primary); font-size: 31px; }
-.dossier-preview { background: var(--paper); color: var(--ink); padding: 93px 60px 70px; margin-top: -23px; }
+.dossier-preview { background: var(--paper); color: var(--ink); padding: 70px 60px; }
 .preview-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
 .section-kicker { display: flex; align-items: center; gap: 9px; font-family: var(--font-condensed); font-weight: 700; font-size: 12px; color: var(--primary); }
 .section-kicker::before { content: ''; width: 20px; height: 3px; background: currentColor; }
