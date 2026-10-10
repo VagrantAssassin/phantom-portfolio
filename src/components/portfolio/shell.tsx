@@ -5,7 +5,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from '@/components/ui/button';
 import { portfolioSections } from '@/lib/portfolio';
 
-export function PortfolioShell({ children }: { children: ReactNode }) {
+export function PortfolioShell({ children, afterMain }: { children: ReactNode; afterMain?: ReactNode }) {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [motionPaused, setMotionPaused] = useState(false);
@@ -37,6 +37,7 @@ export function PortfolioShell({ children }: { children: ReactNode }) {
           <div key={pathname} className="route-enter">{children}</div>
         </main>
       </div>
+      {afterMain}
       <footer className="site-footer">
         <span className="footer-signature">© 2026 STEVANUS RYO WIJAYA</span>
         <span>INDEPENDENT PORTFOLIO · INSPIRED BY PERSONA 5 ROYAL</span>
