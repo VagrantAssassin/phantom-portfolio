@@ -4,3 +4,5 @@
 - [x] Verify navigation, transitions, mobile layout, and routing tests.
 - [x] Replace Joker with the uploaded character and change red accents to character-inspired blue.
 - [x] Make the mobile menu fully cover the screen with an X close control and verify opening, closing, and navigation.
+- [ ] Replace the character with the latest uploaded transparent artwork.
+- [ ] Make the home ticker and white section span the page without clipped edges; verify desktop and mobile.
