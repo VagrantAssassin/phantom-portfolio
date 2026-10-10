@@ -63,8 +63,8 @@
   ::selection { background: var(--highlight); color: var(--ink); }
   html { scroll-behavior: smooth; }
 }
-.portfolio-app { position: relative; isolation: isolate; overflow: clip; min-height: 100vh; }
-.site-header { height: 98px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 52px; position: relative; z-index: 30; }
+.portfolio-app { position: relative; isolation: isolate; overflow: clip; min-height: 100vh; padding-top: 98px; }
+.site-header { height: 98px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 52px; position: fixed; inset: 0 0 auto; width: 100%; background: var(--primary); z-index: 30; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--paper); }
 .brand-mark { font-family: var(--font-display); font-size: 43px; line-height: 1; transform: rotate(-7deg); position: relative; text-shadow: 3px 3px 0 var(--ink); }
 .brand-mark::after { content: '★'; position: absolute; font-size: 17px; right: -10px; top: -9px; color: var(--ink); }
@@ -146,9 +146,7 @@
 .dossier-link svg { margin-left: auto; }
 .site-footer { padding: 25px 52px; background: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 20px; font-family: var(--font-condensed); font-size: 11px; color: var(--muted-foreground); }
 .footer-signature { color: var(--paper); font-weight: 700; }
-.route-enter { animation: route-enter .65s var(--motion-snap) both; }
-.transition-slash { position: fixed; inset: 0; z-index: 100; pointer-events: none; background: var(--ink); clip-path: polygon(0 0,100% 0,100% 100%,0 100%); animation: slash-away .6s var(--motion-snap) both; }
-.transition-slash::after { content: ''; position: absolute; inset: 35% -10%; background: var(--paper); transform: rotate(-12deg); }
+.route-enter { animation: route-enter .42s var(--motion-snap) both; }
 .content-page { min-height: 675px; padding: 65px 60px 85px 35px; position: relative; }
 .content-page::before { content: ''; position: absolute; inset: 20% -20% 0 50%; background-image: radial-gradient(var(--ink) 1px,transparent 1.5px); background-size: 7px 7px; opacity: .22; pointer-events: none; z-index: -1; transform: rotate(-10deg); }
 .page-title { font-family: var(--font-display); font-weight: 400; font-size: 78px; line-height: 1.05; margin: 17px 0 24px; transform: rotate(-4deg); text-shadow: 4px 4px 0 var(--ink); }
@@ -182,15 +180,14 @@
 .contact-line h3 { font-family: var(--font-condensed); font-size: 21px; margin: 0 0 5px; }
 .contact-line p { font-size: 11px; opacity: .75; margin: 0; }
 .contact-line > svg { margin-left: auto; opacity: .6; }
-.motion-paused *, .motion-paused *::before, .motion-paused *::after { animation: none !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
 @keyframes phantom-enter { from { opacity: 0; transform: translate(100px,50px) rotate(9deg); } to { opacity: 1; transform: translate(0,0) rotate(0); } }
 @keyframes persona-awaken { from { opacity: 0; transform: translate(35px,60px) scale(.88); } to { opacity: 1; transform: translate(0,0) scale(1); } }
-@keyframes route-enter { from { opacity: 0; transform: translate(65px,15px) rotate(3deg); } to { opacity: 1; transform: none; } }
-@keyframes slash-away { 0% { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); } 100% { clip-path: polygon(120% 0,180% 0,180% 100%,120% 100%); } }
+@keyframes route-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @keyframes ticker { to { transform: translateX(-50%); } }
 @media (min-width: 1500px) { .main-layout { grid-template-columns: 270px minmax(0,1fr); } .hero { padding-left: 50px; min-height: 730px; } .hero-copy { max-width: 650px; } .hero-title { font-size: 112px; } .hero-title .last-line { font-size: 128px; } .hero-figure { right: 5%; width: 570px; height: 790px; top: -32px; } .hero-description { margin-top: 30px; } .hero-cta { margin-top: 30px; } }
 @media (max-width: 1100px) and (min-width: 761px) { .site-header { padding: 0 30px; } .main-layout { grid-template-columns: 190px minmax(0,1fr); } .side-menu { padding-left: 23px; } .menu-link { font-size: 21px; max-width: 150px; } .hero { padding-left: 25px; } .hero-title { font-size: 66px; } .hero-title .last-line { font-size: 78px; } .hero-figure { width: 390px; right: -65px; top: 30px; height: 625px; } .hero-copy { max-width: 410px; } .hero-description { max-width: 290px; } .name-strip { font-size: 22px; } .hero-cta { gap: 12px; } .phantom-button { font-size: 15px; padding: 0 17px; } .hero-star { right: 180px; width: 140px; height: 140px; } .content-page { padding-right: 30px; } .page-title { font-size: 64px; } }
 @media (max-width: 760px) {
+ .portfolio-app { padding-top: 81px; }
  .site-header { height: 81px; padding: 0 22px; gap: 12px; }
  .brand-mark { font-size: 35px; } .brand-caption { font-size: 10px; padding-left: 12px; } .header-center,.header-status { display: none; } .header-actions { gap: 10px; } .mobile-menu-toggle { display: inline-flex; }
   .main-layout { display: block; } .side-menu { display: none; } .menu-list { gap: 23px; } .menu-link { font-size: 31px; max-width: none; } .menu-link::before { background: var(--primary); } .menu-note { margin-top: 35px; }
@@ -215,4 +212,4 @@
  .content-page { min-height: 680px; padding: 40px 24px 65px; } .page-title { font-size: 54px; margin-top: 24px; } .page-subtitle { font-size: 12px; } .section-tabs { gap: 10px; } .phantom-menu-button { font-size: 16px; padding: 0 17px; } .profile-facts { grid-template-columns: 1fr; gap: 20px; } .empty-record { gap: 15px; } .empty-icon { width: 48px; height: 48px; } .empty-icon svg { width: 22px; height: 22px; } .empty-record h3 { font-size: 22px; } .empty-record p { font-size: 12px; } .record-heading h2 { font-size: 23px; } .record-status { font-size: 10px; } .contact-note { font-size: 29px; padding: 19px; } .contact-lines { grid-template-columns: 1fr; } .project-index { font-size: 38px; min-width: 43px; } .project-slot { gap: 14px; } .project-info h3 { font-size: 22px; }
 }
 @media (max-width: 360px) { .hero-title { font-size: 49px; } .hero-title .last-line { font-size: 56px; } .name-strip { font-size: 20px; } .page-title { font-size: 46px; } }
-@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .transition-slash { display: none; } }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

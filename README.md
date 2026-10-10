@@ -22,3 +22,21 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Deploy ke Cloudflare Workers
+
+Project ini menggunakan Cloudflare Workers karena TanStack Start membutuhkan SSR. Jalankan deployment manual dengan Bun:
+
+```sh
+bun install
+bun run deploy
+```
+
+Untuk update otomatis, hubungkan repository GitHub ke Cloudflare melalui **Workers & Pages > Create application > Workers > Import a repository**. Gunakan pengaturan berikut:
+
+- Build command: `bun run build`
+- Deploy command: `bunx nitro deploy --prebuilt`
+- Root directory: `/`
+- Environment variable: `BUN_VERSION` sesuai versi Bun yang dipakai lokal
+
+Setelah konfigurasi ini dibuat sekali, setiap `git push` ke branch production akan memicu build dan deployment Cloudflare secara otomatis. Perubahan kode tetap perlu di-commit dan di-push; hosting tidak dapat membaca perubahan lokal tanpa deployment baru.

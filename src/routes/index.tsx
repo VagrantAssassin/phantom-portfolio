@@ -3,8 +3,8 @@ import { ArrowDown, ArrowUpRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PortfolioShell } from '@/components/portfolio/shell';
 import { portfolioHead } from '@/lib/portfolio';
-import rogueAvatar from '@/assets/ryo-swordsman.png.asset.json';
-import personaAvatar from '@/assets/ryo-persona.png.asset.json';
+import rogueAvatar from '@/assets/ryo-swordsman.png';
+import personaAvatar from '@/assets/ryo-persona.png';
 
 export const Route = createFileRoute('/')({
   head: () => portfolioHead('Stevanus Ryo Wijaya', 'Kenali Stevanus Ryo Wijaya melalui pendidikan, pengalaman, keahlian, karya, dan pencapaiannya dalam portofolio bertema Persona 5 Royal.'),
@@ -25,7 +25,7 @@ function Index() {
         <p className="hero-description">Setiap orang punya cerita. Ini cerita saya.<br />Tentang perjalanan, karya, dan keinginan untuk<br className="hidden md:block" /> <strong>terus naik level.</strong></p>
         <div className="hero-cta"><Button asChild variant="phantom"><Link to="/projects">EXPLORE MY WORK <ArrowUpRight /></Link></Button><Button asChild variant="phantomOutline"><Link to="/contact">LET'S TALK <ArrowUpRight /></Link></Button></div>
       </div>
-      <div className="hero-figure"><img className="hero-persona" src={personaAvatar.url} width={1024} height={1536} alt="Persona Ryo, kesatria berambut putih dengan zirah biru-emas dan tombak, muncul di belakang karakter utama" /><img className="hero-character" src={rogueAvatar.url} width={1024} height={1536} alt="Karakter Ryo berjaket biru, berkacamata hitam, dan membawa pedang beraksen biru" /><div className="figure-label"><span>★</span> A NEW CHAPTER BEGINS</div></div>
+      <div className="hero-figure"><img className="hero-persona" src={personaAvatar} width={1024} height={1536} alt="Persona Ryo, kesatria berambut putih dengan zirah biru-emas dan tombak, muncul di belakang karakter utama" /><img className="hero-character" src={rogueAvatar} width={1024} height={1536} alt="Karakter Ryo berjaket biru, berkacamata hitam, dan membawa pedang beraksen biru" /><div className="figure-label"><span>★</span> A NEW CHAPTER BEGINS</div></div>
       <div className="hero-bottom"><a href="#dossier"><ArrowDown size={15} /> SCROLL TO REVEAL THE STORY</a><span className="edition">PERSONAL FILE / NO. 001</span></div>
     </section>
   </PortfolioShell>;
