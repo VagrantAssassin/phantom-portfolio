@@ -191,7 +191,7 @@
  .hero-description { font-size: 12px; max-width: 250px; margin-top: 24px; position: relative; z-index: 8; }
  .hero-cta { position: relative; z-index: 9; gap: 13px; margin-top: 22px; flex-wrap: wrap; max-width: 300px; }
  .phantom-button { height: 42px; font-size: 15px; padding: 0 17px; }
- .hero-figure { right: -10px; top: 400px; width: 250px; height: 320px; opacity: 1; }
+ .hero-figure { right: -10px; top: 440px; width: 250px; height: 280px; opacity: 1; }
  .hero-figure::before { inset: 24% -40% -5% -20%; }
  .hero-star { right: 8px; top: 220px; width: 120px; height: 120px; }
  .hero-small-star { right: 25px; top: 30px; font-size: 27px; }
