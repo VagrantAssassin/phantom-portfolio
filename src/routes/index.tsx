@@ -3,7 +3,7 @@ import { ArrowDown, ArrowUpRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PortfolioShell } from '@/components/portfolio/shell';
 import { portfolioHead } from '@/lib/portfolio';
-import phantomAvatar from '@/assets/phantom-avatar.png';
+import rogueAvatar from '@/assets/ryo-rogue.png.asset.json';
 
 export const Route = createFileRoute('/')({
   head: () => portfolioHead('Stevanus Ryo Wijaya', 'Kenali Stevanus Ryo Wijaya melalui pendidikan, pengalaman, keahlian, karya, dan pencapaiannya dalam portofolio bertema Persona 5 Royal.'),
@@ -21,7 +21,7 @@ function Index() {
         <p className="hero-description">Setiap orang punya cerita. Ini cerita saya.<br />Tentang perjalanan, karya, dan keinginan untuk<br className="hidden md:block" /> <strong>terus naik level.</strong></p>
         <div className="hero-cta"><Button asChild variant="phantom"><Link to="/projects">EXPLORE MY WORK <ArrowUpRight /></Link></Button><Button asChild variant="phantomOutline"><Link to="/contact">LET'S TALK <ArrowUpRight /></Link></Button></div>
       </div>
-      <div className="hero-figure"><img src={phantomAvatar} width={1024} height={1536} alt="Ilustrasi karakter phantom thief dengan topeng putih dan sarung tangan merah" /><div className="figure-label"><span>★</span> A NEW CHAPTER BEGINS</div></div>
+      <div className="hero-figure"><img src={rogueAvatar.url} width={1024} height={1536} alt="Karakter Ryo berjaket biru, berkacamata hitam, dan membawa pedang beraksen biru" /><div className="figure-label"><span>★</span> A NEW CHAPTER BEGINS</div></div>
       <div className="hero-bottom"><a href="#dossier"><ArrowDown size={15} /> SCROLL TO REVEAL THE STORY</a><span className="edition">PERSONAL FILE / NO. 001</span></div>
     </section>
     <div className="ticker" aria-hidden="true"><div className="ticker-track">{[0,1,2,3].map(n => <div key={n} className="flex items-center gap-10"><span>BREAK THE LIMITS</span><span className="ticker-star">★</span><span className="outline-word">CREATE YOUR OWN PATH</span><span className="ticker-star">★</span><span>NEVER STOP LEVELING UP</span><span className="ticker-star">★</span></div>)}</div></div>

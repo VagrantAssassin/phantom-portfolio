@@ -34,9 +34,9 @@
   --radius-lg: 6px;
 }
 :root {
-  --background: oklch(0.568 0.225 25.7);
+  --background: oklch(0.44 0.19 262);
   --foreground: oklch(0.98 0 0);
-  --primary: oklch(0.568 0.225 25.7);
+  --primary: oklch(0.44 0.19 262);
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.115 0 0);
   --secondary-foreground: oklch(0.98 0 0);
@@ -44,12 +44,12 @@
   --card-foreground: oklch(0.98 0 0);
   --muted: oklch(0.235 0 0);
   --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.91 0.17 96);
+  --accent: oklch(0.8 0.12 225);
   --accent-foreground: oklch(0.115 0 0);
   --border: oklch(0.98 0 0 / 22%);
   --paper: oklch(0.98 0 0);
   --ink: oklch(0.115 0 0);
-  --highlight: oklch(0.91 0.17 96);
+  --highlight: oklch(0.8 0.12 225);
   --ink-shadow: 5px 5px 0 var(--ink);
   --paper-shadow: 4px 4px 0 var(--paper);
   --motion-snap: cubic-bezier(.16,1,.3,1);
@@ -76,6 +76,13 @@
 .phantom-nav-button { background: transparent; color: var(--paper); border: 1px solid var(--border); border-radius: 0; width: 34px; height: 34px; padding: 0; }
 .phantom-nav-button:hover { background: var(--ink); }
 .mobile-menu-toggle { display: none; }
+.mobile-navigation { position: fixed; inset: 0; z-index: 80; background: var(--ink); color: var(--paper); padding: max(105px, env(safe-area-inset-top)) 40px max(40px, env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; animation: route-enter .3s var(--motion-snap) both; }
+.mobile-menu-close { position: absolute; top: max(23px, env(safe-area-inset-top)); right: max(22px, env(safe-area-inset-right)); width: 40px; height: 40px; }
+.mobile-navigation .menu-list { gap: 23px; }
+.mobile-navigation .menu-link { font-size: 31px; max-width: none; }
+.mobile-navigation .menu-link::before { background: var(--primary); }
+.mobile-navigation .menu-link[data-active=true]::before, .mobile-navigation .menu-link:hover::before { background: var(--paper); }
+.mobile-navigation .menu-note { margin-top: 35px; }
 .main-layout { display: grid; grid-template-columns: 240px minmax(0,1fr); position: relative; }
 .side-menu { z-index: 20; padding: 105px 0 0 44px; align-self: start; }
 .menu-eyebrow { display: flex; align-items: center; gap: 8px; margin: 0 0 21px 8px; font-family: var(--font-condensed); font-size: 11px; font-weight: 700; }
@@ -183,7 +190,7 @@
 @media (max-width: 760px) {
  .site-header { height: 81px; padding: 0 22px; gap: 12px; }
  .brand-mark { font-size: 35px; } .brand-caption { font-size: 10px; padding-left: 12px; } .header-center,.header-status { display: none; } .header-actions { gap: 10px; } .mobile-menu-toggle { display: inline-flex; }
- .main-layout { display: block; } .side-menu { display: none; } .side-menu[data-open=true] { display: block; position: fixed; inset: 81px 0 0; padding: 40px 40px; background: var(--ink); z-index: 40; overflow-y: auto; } .menu-list { gap: 23px; } .menu-link { font-size: 31px; max-width: none; } .menu-link::before { background: var(--primary); } .menu-note { margin-top: 35px; }
+  .main-layout { display: block; } .side-menu { display: none; } .menu-list { gap: 23px; } .menu-link { font-size: 31px; max-width: none; } .menu-link::before { background: var(--primary); } .menu-note { margin-top: 35px; }
  .hero { min-height: 735px; padding: 27px 22px 75px; }
  .hero-copy { max-width: 100%; } .hero-eyebrow { font-size: 11px; margin-bottom: 20px; padding: 6px 12px; }
  .hero-title { font-size: 57px; } .hero-title .last-line { font-size: 65px; margin-top: 7px; } .hero-title .first-line { padding-left: 9px; padding-right: 9px; }

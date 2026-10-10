@@ -13,3 +13,5 @@
 - Keep each portfolio section as a distinct TanStack content route, sharing a single animated shell so navigation and visual transitions remain consistent.
 - Store visual styles and motion in the global semantic design system; respect reduced-motion settings so the expressive theme remains accessible.
 - Keep unspecified personal history, skills, projects, achievements, and contact details explicitly unfilled rather than fabricating credentials.
+- Render mobile navigation in a modal portal with focus containment and scroll locking so it covers the header and remains accessible.
+- Reference uploaded character imagery through asset pointers so user media stays outside the source repository.
