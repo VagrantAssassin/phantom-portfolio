@@ -113,7 +113,7 @@
 .hero-figure img { width: 100%; height: 100%; object-fit: contain; object-position: center; filter: drop-shadow(8px 6px 0 var(--ink)); animation: phantom-enter 1s var(--motion-snap) both; }
 .hero-star { position: absolute; right: 245px; top: 15px; width: 170px; height: 170px; background: var(--paper); clip-path: polygon(50% 0,61% 35%,98% 24%,72% 53%,100% 76%,63% 70%,54% 100%,42% 70%,8% 90%,29% 57%,0 36%,39% 38%); transform: rotate(-18deg); z-index: 1; }
 .hero-small-star { position: absolute; top: 63px; right: 100px; font-size: 42px; z-index: 2; color: var(--ink); transform: rotate(15deg); }
-.figure-label { position: absolute; bottom: 45px; right: 62px; transform: rotate(-8deg); background: var(--paper); color: var(--ink); padding: 6px 14px; font-family: var(--font-condensed); font-weight: 800; font-size: 13px; z-index: 4; box-shadow: 4px 4px 0 var(--primary); }
+.figure-label { position: absolute; bottom: 85px; right: 62px; transform: rotate(-8deg); background: var(--paper); color: var(--ink); padding: 6px 14px; font-family: var(--font-condensed); font-weight: 800; font-size: 13px; z-index: 4; box-shadow: 4px 4px 0 var(--primary); }
 .figure-label span { color: var(--primary); }
 .hero-bottom { position: absolute; bottom: 24px; left: 32px; right: 40px; display: flex; align-items: center; justify-content: space-between; z-index: 5; }
 .hero-bottom a { display: flex; align-items: center; gap: 10px; color: var(--paper); font-family: var(--font-condensed); font-weight: 600; font-size: 11px; }
@@ -191,16 +191,16 @@
  .hero-description { font-size: 12px; max-width: 250px; margin-top: 24px; position: relative; z-index: 8; }
  .hero-cta { position: relative; z-index: 9; gap: 13px; margin-top: 22px; flex-wrap: wrap; max-width: 300px; }
  .phantom-button { height: 42px; font-size: 15px; padding: 0 17px; }
- .hero-figure { right: -125px; top: 290px; width: 345px; height: 445px; opacity: 1; }
+ .hero-figure { right: -10px; top: 400px; width: 250px; height: 320px; opacity: 1; }
  .hero-figure::before { inset: 24% -40% -5% -20%; }
  .hero-star { right: 8px; top: 220px; width: 120px; height: 120px; }
  .hero-small-star { right: 25px; top: 30px; font-size: 27px; }
- .figure-label { font-size: 10px; bottom: 35px; right: 133px; }
+ .figure-label { font-size: 10px; bottom: 20px; right: 28px; }
  .hero-bottom { left: 22px; right: 22px; bottom: 27px; } .hero-bottom .edition { display: none; }
  .ticker { padding: 19px 0; } .ticker-track { font-size: 25px; gap: 26px; }
  .dossier-preview { padding: 70px 25px 45px; } .preview-inner { grid-template-columns: 1fr; gap: 20px; } .preview-title { font-size: 46px; } .preview-text { max-width: 100%; }
  .site-footer { padding: 23px; flex-direction: column; align-items: flex-start; gap: 12px; line-height: 1.6; }
  .content-page { min-height: 680px; padding: 40px 24px 65px; } .page-title { font-size: 54px; margin-top: 24px; } .page-subtitle { font-size: 12px; } .section-tabs { gap: 10px; } .phantom-menu-button { font-size: 16px; padding: 0 17px; } .profile-facts { grid-template-columns: 1fr; gap: 20px; } .empty-record { gap: 15px; } .empty-icon { width: 48px; height: 48px; } .empty-icon svg { width: 22px; height: 22px; } .empty-record h3 { font-size: 22px; } .empty-record p { font-size: 12px; } .record-heading h2 { font-size: 23px; } .record-status { font-size: 10px; } .contact-note { font-size: 29px; padding: 19px; } .contact-lines { grid-template-columns: 1fr; } .project-index { font-size: 38px; min-width: 43px; } .project-slot { gap: 14px; } .project-info h3 { font-size: 22px; }
 }
-@media (max-width: 360px) { .hero-title { font-size: 49px; } .hero-title .last-line { font-size: 56px; } .name-strip { font-size: 20px; } .hero-figure { right: -150px; } .page-title { font-size: 46px; } }
+@media (max-width: 360px) { .hero-title { font-size: 49px; } .hero-title .last-line { font-size: 56px; } .name-strip { font-size: 20px; } .page-title { font-size: 46px; } }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .transition-slash { display: none; } }
