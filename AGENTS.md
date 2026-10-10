@@ -15,4 +15,5 @@
 - Keep unspecified personal history, skills, projects, achievements, and contact details explicitly unfilled rather than fabricating credentials.
 - Render mobile navigation in a modal portal with focus containment and scroll locking so it covers the header and remains accessible.
 - Reference uploaded character imagery through asset pointers so user media stays outside the source repository.
+- Compose the home character and Persona as separate transparent image layers in one responsive scene so the larger Persona stays behind the foreground character without covering controls.
 - Render home continuation bands outside the sidebar grid through the shared shell's afterMain slot so the ticker and dossier span the entire viewport.
